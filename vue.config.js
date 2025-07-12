@@ -1,6 +1,13 @@
-const { defineConfig } = require('@vue/cli-service')
-
-module.exports = defineConfig({
+module.exports = {
     indexPath: '/',
-    assetsDir: 'assets/'
-})
+    assetsDir: 'assets/',
+    // css: {
+    //     loaderOptions: {
+    //         scss: {
+    //             sassOptions: {
+    //                 // silenceDeprecations: ['legacy-js-api'],
+    //             },
+    //         },
+    //     },
+    // },
+}
