@@ -5,58 +5,61 @@
       `app`,
       `background`,
       `opacity-${opacity}`,
-      `theme-${is_day ? 'day' : 'night'}`
+      `theme-${is_day && opacity < 7 ? 'day' : 'night'}`
     ].join(' ')"
   >
-    <Background 
+    <Paisagem :wind_speed="wind_speed" :is_day="is_day" :opacity="opacity" />
+    <Background
+      :setWindSpeed="setWindSpeed"
       :setOpacity="setOpacity" 
       :setIsDay="setIsDay" 
     />
 
-    <BgPaisagem />
-
     <Header/>
-
     <main class="main">
       <Sidebar />
-      <router-view />
+      <RouterView />
     </main>
-
     <Footer />
+
   </div>
 </template>
 
 <script>
-// import './assets/sass/main.scss'
-import Header from './components/Layout/Header'
-import Sidebar from './components/Layout/Sidebar'
-import Footer from './components/Layout/Footer'
-import Background from './components/Layout/Background  '
-import BgPaisagem from './components/Layout/BgPaisagem'
+import Header from './components/layout/Header'
+import Sidebar from './components/layout/Sidebar'
+import Footer from './components/layout/Footer'
+import Background from './components/layout/Background'
+import Paisagem from './components/layout/Paisagem'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Footer,
     Header,
     Sidebar,
-    BgPaisagem,
-    Background
+    Background,
+    Paisagem
   },
   data() {
     return {
       is_day: 1,
-      opacity: 1
+      opacity: 1,
+      wind_speed: 10
     }
   },
   methods: {
     setOpacity(opacity = 1){
       this.opacity = Math.round(opacity)
+      // if(this.opacity >= 7){this.is_day = true}
+      // else{this.is_day = false}
     },
-    setIsDay(is_day = 1){
+    setIsDay(is_day = false){
       this.is_day = is_day
-    }
+    },
+    setWindSpeed(wind_speed = 10){
+      this.wind_speed = wind_speed
+    } 
   }
 }
 </script>
-

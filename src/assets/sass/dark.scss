@@ -1,0 +1,35 @@
+//Themes
+.theme-day {color: $black2;}
+
+.theme-night {
+
+  .menu>ul>li>a,
+  .menu>ul>li>a>svg,
+  .slogan {
+    color: rgba($white, 1);
+  }
+
+  .destak2 {
+    color: rgba($white, .8) !important;
+  }
+
+  .slogan > .destak2 {
+    color: rgba($white, .7);
+  }
+
+  .sun {
+    fill: $white;
+    fill-opacity: .90;
+  }
+
+  .moon-craters {
+    fill: rgba($black2, .1);
+  }
+
+  .left {
+    p {
+      color: $white;
+    }
+  }
+
+}

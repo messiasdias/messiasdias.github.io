@@ -1,14 +1,13 @@
-
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
-// import FontAwesomeIcon from './assets/js/icons'
-// import router from './router'
+import router from './router'
+import store from './store'
+import icon from './assets/js/icons'
+import './assets/js/sw'
+import './assets/css/app.css'
 
-// Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.config.productionTip = false
-
-
-new Vue({
-  // router,
-  render: h => h(App),
-}).$mount('#app')
+createApp(App)
+  .use(store)
+  .use(router)
+  .component('font-awesome-icon', icon)
+  .mount('#app')

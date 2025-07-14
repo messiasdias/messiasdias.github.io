@@ -1,5 +1,5 @@
 <template>
-<svg id="home-img" data-name="Layer 1" width="773.11417" height="610.8036" viewBox="0 0 773.11417 610.8036" >
+<svg id="home-img" class="home-img" data-name="Layer 1" width="773.11417" height="610.8036" viewBox="0 0 773.11417 610.8036" >
     <rect id="e81a7c33-c795-457d-8abc-c4a3c260cd56" data-name="Rectangle 62" x="309.47335" y="12.71102" width="463.64082" height="220.00561" fill="#e6e6e6"/>
     <rect id="be98c830-918a-42d1-b1b0-0085d5874e90" data-name="Rectangle 75" x="322.73131" y="31.57689" width="437.12554" height="183.55756" fill="#fff"/>
     <rect id="tela-top" data-name="Rectangle 80" x="309.27566" width="463.64082" height="19.69684" fill="#cc16fa"/>

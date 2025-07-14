@@ -1,19 +1,32 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-
+//fab fa-whatsapp 
 import { 
- faHouseChimney,
+ faFileContract,
+ faHouseDamage,
  faAddressCard,
  faImages,
- faArrowDownLong,
- faComputerMouse
+ faArrowUp,
+ faArrowDown,
+ faMouse,
+ faMailBulk,
+ faComment
 } from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp , faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faHouseChimney)
+
+library.add(faFileContract)
+library.add(faHouseDamage)
 library.add(faAddressCard)
 library.add(faImages)
-library.add(faArrowDownLong)
-library.add(faComputerMouse)
+library.add(faArrowUp)
+library.add(faArrowDown)
+library.add(faMouse)
+library.add(faWhatsapp)
+library.add(faLinkedin)
+library.add(faFacebook)
+library.add(faMailBulk)
+library.add(faComment)
 
 export default FontAwesomeIcon

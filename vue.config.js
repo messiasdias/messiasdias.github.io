@@ -1,13 +1,4 @@
-module.exports = {
-    indexPath: '/',
-    assetsDir: 'assets/',
-    // css: {
-    //     loaderOptions: {
-    //         scss: {
-    //             sassOptions: {
-    //                 // silenceDeprecations: ['legacy-js-api'],
-    //             },
-    //         },
-    //     },
-    // },
-}
+const { defineConfig } = require('@vue/cli-service')
+module.exports = defineConfig({
+  transpileDependencies: true
+})

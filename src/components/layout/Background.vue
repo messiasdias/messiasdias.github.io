@@ -9,28 +9,20 @@
         </defs>
 
         <!-- Gotas de chuva -->
-        <g v-if="meteo.current.rain" >
+        <g v-if="it_is_rain" >
             <use v-for="gota in gotas" :key="gota" :x="getXValue()" :y="getXValue()" href="#raindrop" > 
                 <animate :dur="getDurValue(gota)" attributeName="y" from="0" to="100" repeatCount="indefinite" begin="0s" />
             </use>
         </g>
+
     </svg>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
-    //-8.0131188,-35.0152703
-    // https://api.open-meteo.com/v1/forecast?latitude=-8.0131188&longitude=-35.0152703&current=rain,wind_speed_10m,relative_humidity_2m,temperature_2m,is_day,cloud_cover&hourly=rain,wind_speed_10m,relative_humidity_2m,temperature_2m,is_day,cloud_cover
+    name: "background-comp",
     props: {
-        velVento: {
-            type: Number,
-            default: 100
-        },
-        intensity: {
-            type: Number,
-            default: 100
-        },
         setOpacity: {
             type: Function,
             default: () => {}
@@ -38,14 +30,20 @@ export default {
         setIsDay: {
             type: Function,
             default: () => {}
+        },
+        setWindSpeed: {
+            type: Function,
+            default: () => {}
         }
     },
     data() {
         return {
-            latitude: 0,  //temp
-            longitude: 0, //temp
-            gotas: [...Array(100).keys()],
-            meteo: null
+            meteo: null,
+            latitude: 0,
+            longitude: 0,
+            wind_speed: 10,
+            it_is_rain: false,
+            gotas: [...Array(100).keys()]
         }
     },
     methods: {
@@ -78,18 +76,37 @@ export default {
                 }
         },
         getMeteoDate() {
+            //@to-do remove temp
+            this.setIsDay(true)
+            this.setOpacity(3)
+            this.it_is_rain = true
+            this.setWindSpeed(60)
+
+            // axios
+            //     .get(this.getMeteoUrl(-8.0131188,-35.0152703))
+            //     .then((resp) => {
+            //         console.log("resp.data", resp.data)
+            //         this.meteo = resp.data
+            //         this.setIsDay(false)
+            //         this.setOpacity(9)
+            //         this.it_is_rain = true
+            //         this.setWindSpeed(50)
+            //     })
+
+            //@to-do uncomment
             // this.getCoordenates((lat, lng) => {
             //     this.latitude = lat || 0
             //     this.longitude = lng || 0
-                axios
-                    .get(this.getMeteoUrl(-8.0131188,-35.0152703))//lat, lng))
-                    .then((resp) => {
-                        this.meteo = resp.data
-                        const opacity = !this.meteo.current.is_day ? (this.meteo.current.cloud_cover/10) : 9
-                        this.setIsDay((this.meteo.current.is_day || opacity < 7))
-                        this.setOpacity(opacity)
-                    })
-
+            //     axios
+            //         .get(this.getMeteoUrl(lat, lng))
+            //         .then((resp) => {
+            //             this.meteo = resp.data
+            //             const opacity = !this.meteo.current.is_day ? (this.meteo.current.cloud_cover/10) : 9
+            //             this.setIsDay(this.meteo.current.is_day)
+            //             this.setOpacity(opacity)
+            //             this.it_is_rain = this.meteo.current.rain
+            //             this.setWindSpeed(this.meteo.current.wind_speed_10m)
+            //         })
             // })
         }
     },
