@@ -37,7 +37,7 @@
       </ul>
     </nav>
 
-    <RouterLink class="btn-secondary btn-lg" to="/about#contacts">  <font-awesome-icon icon="fa-solid fa-address-card" /> Contato</RouterLink>
+    <a class="btn-secondary btn-lg" href="/about#contacts">  <font-awesome-icon icon="fa-solid fa-address-card" /> Contato</a>
   </header>
 </template>
 <script>

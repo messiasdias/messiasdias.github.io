@@ -484,15 +484,18 @@
   align-items: flex-start;
   width: 100%;
 }
-.page .left .btn-primary {
+.page .left .btn-primary,
+.page .left .btn-secondary {
+  position: relative;
   min-width: 90%;
 }
 @media screen and (min-width: 843px) {
   .page .left {
-    width: 60%;
+    width: 70%;
   }
-  .page .left .btn-primary {
-    min-width: 38%;
+  .page .left .btn-primary,
+  .page .left .btn-secondary {
+    min-width: 35%;
   }
 }
 .page .left h2 {

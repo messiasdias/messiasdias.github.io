@@ -531,15 +531,17 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
     align-items: flex-start;
     width: 100%;
 
-    .btn-primary {
+   .btn-primary, 
+   .btn-secondary {
+      position: relative;
       min-width: 90%;
     }
 
     @media screen and (min-width: $table_size) {
-      width: 60%;
-
-      .btn-primary {
-        min-width: 38%;
+      width: 70%;
+      .btn-primary, 
+      .btn-secondary {
+        min-width: 35%;
       }
     }
 

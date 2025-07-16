@@ -78,8 +78,8 @@ export default {
         getMeteoDate() {
             //@to-do remove temp
             this.setIsDay(true)
-            this.setOpacity(3)
-            this.it_is_rain = true
+            this.setOpacity(1)
+            this.it_is_rain = false
             this.setWindSpeed(60)
 
             // axios
