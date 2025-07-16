@@ -1,6 +1,7 @@
 // $color1: #CC16FA;
 // $color2: #FA2373;
 // $color3: #F271A1;
+// $color4: rgba(96,81,231,1); //#F271A1;
 // $black: #000000;
 // $black2: rgba(0, 0, 0, .8);
 // $white: #e8f1f2;
@@ -8,6 +9,7 @@
 $color1: #13293d;
 $color2: #006494;
 $color3: #247ba0;
+$color4: rgba(96,81,231,1);
 $black: #000000;
 $black2: rgba(0, 0, 0, .8);
 $white: #e8f1f2;
@@ -228,13 +230,15 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
 
 
 #logo-svg {
-  .logo-svg-path:nth-child(1){
+  .logo-svg-path:nth-child(1) {
     fill: $color2;
   }
-  .logo-svg-path:nth-child(2){
+
+  .logo-svg-path:nth-child(2) {
     fill: $color3;
   }
-  .logo-svg-path:nth-child(3){
+
+  .logo-svg-path:nth-child(3) {
     fill: $color1;
   }
 }
@@ -312,22 +316,30 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
     color: $black2;
     box-shadow: none;
   }
-  
+
   &-light2 {
     @extend .btn;
     color: $white;
-    background:  rgba($color3, .7);
+    background: rgba($color3, .7);
   }
 
   &-lg {
     @extend .btn;
+
     @media screen and (min-width: $mobile_size) {
       min-width: 180px;
       max-width: 200px;
     }
   }
 
-  & > svg {
+  &-destak {
+    @extend .btn;
+    color: $white;
+    background: $color2;
+    opacity: 2;
+  }
+
+  &>svg {
     margin-right: 5px;
     font-size: .8rem;
   }
@@ -338,6 +350,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
   padding: 112px;
   box-sizing: border-box;
   padding: 0px 15px;
+
   @media screen and (min-width: $mobile_size) {
     padding: 20px 35px;
   }
@@ -398,6 +411,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
       li {
         @extend .flex-center;
         justify-content: flex-start;
+
         @media screen and (min-width: $table_size) {
           margin: 0px 15px;
         }
@@ -435,13 +449,17 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
             margin-right: 10px;
             color: $color2;
           }
+        }
 
-          &:hover,
-          &.active,
-          &.active>.router-link-active {
-            transition: all ease-in-out .3s;
-            transform: translateY(-1px);
-            color: $color3;
+        &.active,
+        & > a.active,
+        & > a:hover,
+        .router-link-active {
+          transition: all ease-in-out .3s;
+          transform: translateY(-1px);
+          color: $white;
+          svg {
+            color: $white;
           }
         }
       }
@@ -452,10 +470,6 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
 .sidebar {
   height: 100vh;
   width: 10%;
-  // position: fixed;
-  // right: 0;
-  // top: 0;
-  // display: flex;
   flex-direction: column;
   justify-content: flex-end;
   z-index: 100;
@@ -469,6 +483,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
   .icons {
     display: flex;
     flex-direction: column;
+
     @media screen and (max-width: $table_size) {
       margin-bottom: 20px;
       margin-right: 20px;
@@ -481,16 +496,16 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
     }
   }
 
-  .icon-scroll{
+  .icon-scroll {
     font-size: 1.7rem;
     cursor: pointer;
   }
 
-  .icon-scroll:nth-child(1){
+  .icon-scroll:nth-child(1) {
     color: $color1;
   }
 
-  .icon-scroll:nth-child(2){
+  .icon-scroll:nth-child(2) {
     color: $color2;
   }
 }
@@ -538,15 +553,16 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
     justify-content: flex-start;
     width: 100%;
 
-   .btn-primary, 
-   .btn-secondary {
+    .btn-primary,
+    .btn-secondary {
       position: relative;
       min-width: 90%;
     }
 
     @media screen and (min-width: $table_size) {
       width: 70%;
-      .btn-primary, 
+
+      .btn-primary,
       .btn-secondary {
         min-width: 25%;
       }
@@ -567,13 +583,15 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
       line-height: 1.5;
       text-shadow: 1px 1px 1px rgba($black2, .3);
       color: $black2;
+
       @media screen and (max-width: $table_size) {
         max-width: 90%;
         text-align: center;
       }
     }
 
-    .destak, h2 {
+    .destak,
+    h2 {
       background-color: $color1;
       color: whitesmoke;
       padding: 5px;
@@ -604,7 +622,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
       line-height: 3.6rem;
       max-width: 50%;
       text-wrap: no-wrap;
-      text-shadow: 1px -1px 1px rgba($black2, .1); 
+      text-shadow: 1px -1px 1px rgba($black2, .1);
 
       @media screen and (min-width: $table_size) {
         font-size: 1rem;
@@ -616,6 +634,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
       .destak2 {
         color: $black2;
         font-size: 1.6rem;
+
         @media screen and (min-width: $table_size) {
           font-size: 2rem;
         }
@@ -655,7 +674,10 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
       margin-top: 40px;
       align-self: center;
 
-      @media screen and (min-width: $table_size) {display: none;}
+      @media screen and (min-width: $table_size) {
+        display: none;
+      }
+
       @media screen and (max-width: $mobile_size) {
         width: 190px;
         align-self: center;
@@ -695,7 +717,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
   // @media screen and (max-width: $table_size) {
   //   display: none !important;
   // }
-  
+
   #tela-top {
     fill: $color1;
     // animation: home-img-animation 3s infinite;
@@ -725,6 +747,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
     opacity: 1;
     fill: #f2f2f2;
     animation: home-img-animation-notbook-screen 5s infinite;
+
     @media screen and (max-width: $table_size) {
       display: none !important;
     }
@@ -741,7 +764,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
   justify-content: center;
   text-align: center;
 
-  & > .item {
+  &>.item {
     font-size: 2rem;
     margin: 5px;
     color: $color2;
@@ -751,7 +774,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
     cursor: pointer;
     transition: all ease-in .3s;
 
-    &:hover{
+    &:hover {
       transition: all ease-in .6s;
       transform: translateY(-2px);
       color: $color1;
@@ -759,7 +782,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
   }
 }
 
-.about > .left {
+.about>.left {
 
   h2 {
     align-self: center;
@@ -771,7 +794,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
 
   .slogan {
     font-size: 1.5rem !important;
-    line-height: 2rem ;
+    line-height: 2rem;
     text-align: center !important;
     color: $black2;
     max-width: 60%;
@@ -780,14 +803,177 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
     @media screen and (min-width: $table_size) {
       text-align: left;
       font-size: 2.8rem !important;
-      line-height: 3.5rem ;
+      line-height: 3.5rem;
       max-width: 100%;
     }
+
     @media screen and (max-width: $table_size) {
       transform: translateX(-5%);
     }
   }
 }
+
+
+.input-range {
+  width: 60%;
+  height: 8px;
+
+  @media screen and (min-width: $table_size) {
+    width: 200px;
+    height: 10px;
+  }
+
+  &::-moz-range-track,
+  &::-webkit-slider-runnable-track{
+    height: 6px;
+    background: $color2;
+    border-radius: 5px;
+    border: none !important;
+    .item-disabled  > & {
+      background: rgba($white, .8);
+      border-color: rgba($white, .8);
+    }
+  }
+
+  &::-webkit-slider-thumb 
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    background: $color3;
+    border-radius: 50%;
+    cursor: pointer;
+    .item-disabled  > & {
+      background: rgba($white, .8);
+      border-color: rgba($white, .8);
+    }
+  }
+}
+
+
+.modal-config {
+  @extend .flex-center;
+  z-index: 101;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;;
+  background: rgba($black2, .3);
+  flex-direction: column;
+
+  button[name="close"] {
+    border: none;
+    color: rgba($white,1);
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: bold;
+    background: transparent !important;
+    @media screen and (min-width: $table_size) {
+      top: 15%;
+      right: 32%;
+    }
+  }
+
+  .item {
+    @extend .flex-center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    height: 60px;
+    margin: 5px;
+    padding: 0px 20px;
+    border: solid 1px #ccc;
+    border-radius: 7px;
+    background-color: $white;
+    flex-wrap: wrap;
+ 
+    @media screen and (min-width: $table_size) {
+      width: 300px;
+      justify-content: space-between;;
+    }
+
+    &:hover{
+      cursor: pointer;
+      background-color: $color1;
+      & > label,
+      & > svg {
+        color: $white;
+      }
+    }
+
+    &-disabled {
+      @extend .item;
+      & > svg,
+      & > label {
+        color: rgba($black2, .3) !important;
+      }
+
+      & > input {
+        background: rgba($black2, .2);
+      }
+
+      &:hover {
+        cursor:not-allowed;
+        & > svg,
+        & > label ,
+        & > input {
+          cursor:not-allowed;
+          color: rgba($white, .8) !important;
+        }
+        & > input {
+          background: rgba($black2, .2) !important;
+        }
+      }
+    }
+
+    label {
+      width: auto;
+      font-family: Semibold;
+      font-size: .9rem;
+      font-weight: bolder;
+      text-align: center;
+      color: rgba($black2, .7);
+      cursor: pointer;
+    }
+
+    svg {
+      color: $color2;
+      font-size: 1.6rem;
+    }
+  }
+
+  .item2{ 
+    @extend .item;
+    justify-content: flex-end;
+    &-disabled {
+      @extend .item2, .item-disabled;
+    }
+  }
+
+  .item3 {
+    @extend .item;
+    justify-content: flex-end;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    &, &:hover {
+      transform: translate(15px, 10px);
+      background: none;
+      border: none;
+      & > svg {
+        color: rgba( $white, .7);
+        &:hover{color: rgba( $white, 1);}
+      }  
+    }
+  }
+}
+
+
 
 @import "./paisagem.scss";
 @import "./dark.scss";

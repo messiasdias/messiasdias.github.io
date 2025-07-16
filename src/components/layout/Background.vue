@@ -20,29 +20,30 @@
 
 <script>
 import axios from 'axios'
+import { emitter } from './../../assets/js/event-bus'
 export default {
     name: "background-comp",
     props: {
-        setOpacity: {
-            type: Function,
+        it_is_rain: {
+            type: Boolean,
+            default: false,
+        },
+        is_day: {
+            type: Boolean,
             default: () => {}
         },
-        setIsDay: {
-            type: Function,
-            default: () => {}
+        opacity: {
+            type: Number,
+            default: 1
         },
-        setWindSpeed: {
-            type: Function,
-            default: () => {}
-        }
+        by_location: {
+            type: Boolean,
+            default: true
+        },
     },
     data() {
         return {
             meteo: null,
-            latitude: 0,
-            longitude: 0,
-            wind_speed: 10,
-            it_is_rain: false,
             gotas: [...Array(100).keys()]
         }
     },
@@ -70,30 +71,30 @@ export default {
                         maximumAge: 0
                     }
                 );
-                } else {
-                    console.debug("Geolocation is not supported by this browser.");
-                }
+            } else {
+                console.debug("Geolocation is not supported by this browser.");
+            }
         },
         getMeteoDate() {
             this.getCoordenates((lat, lng) => {
-                this.latitude = lat || 0
-                this.longitude = lng || 0
-                console.log(lat, lng)
                 axios
-                    .get(this.getMeteoUrl(lng, lat))
+                    .get(this.getMeteoUrl(lat, lng))
                     .then((resp) => {
                         this.meteo = resp.data
-                        const opacity = !this.meteo.current.is_day ? (this.meteo.current.cloud_cover/10) : 9
-                        this.setIsDay(this.meteo.current.is_day)
-                        this.setOpacity(opacity)
-                        this.it_is_rain = this.meteo.current.rain == 1
-                        this.setWindSpeed(this.meteo.current.wind_speed_10m)
+                        const rain = this.meteo.current.rain > 0
+                        const day = this.meteo.current.is_day == 1
+                        const opct = day & !rain ? (Math.round(this.meteo.current.cloud_cover/10) - 2) : 7
+                        this.$emit('setOpacity', opct)
+                        this.$emit('setIsDay', day)
+                        this.$emit('setItIsRain', rain)
+                        this.$emit('setWindSpeed',this.meteo.current.wind_speed_10m)
                     })
             })
         }
     },
     mounted(){
-        this.getMeteoDate()
+        emitter.on('setByLocation', this.getMeteoDate)
+        if(this.by_location) {this.getMeteoDate()}
     }
 }
 

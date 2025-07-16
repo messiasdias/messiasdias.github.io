@@ -248,13 +248,13 @@
   transition: background ease-in-out 4s;
 }
 
-.flex-center, .page .right, .page .left .buttons, .page .left, .header .menu ul li a, .header .menu ul li, .header .logo-content, .btn, .btn-lg, .btn-light2, .btn-light, .btn-secondary, .btn-primary2, .btn-primary {
+.flex-center, .modal-config .item, .modal-config .item3, .modal-config .item2, .modal-config .item2-disabled, .modal-config .item-disabled, .modal-config, .page .right, .page .left .buttons, .page .left, .header .menu ul li a, .header .menu ul li, .header .logo-content, .btn, .btn-destak, .btn-lg, .btn-light2, .btn-light, .btn-secondary, .btn-primary2, .btn-primary {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.btn, .btn-lg, .btn-light2, .btn-light, .btn-secondary, .btn-primary2, .btn-primary {
+.btn, .btn-destak, .btn-lg, .btn-light2, .btn-light, .btn-secondary, .btn-primary2, .btn-primary {
   z-index: 100;
   text-decoration: none;
   cursor: pointer;
@@ -265,7 +265,7 @@
   margin: 2px;
   padding: 10px 15px;
 }
-.btn:hover, .btn-lg:hover, .btn-light2:hover, .btn-light:hover, .btn-secondary:hover, .btn-primary2:hover, .btn-primary:hover {
+.btn:hover, .btn-destak:hover, .btn-lg:hover, .btn-light2:hover, .btn-light:hover, .btn-secondary:hover, .btn-primary2:hover, .btn-primary:hover {
   opacity: 1;
   transform: translateY(-1.5px);
   transition: all ease-in-out 0.3s;
@@ -295,7 +295,12 @@
     max-width: 200px;
   }
 }
-.btn > svg, .btn-primary > svg, .btn-primary2 > svg, .btn-secondary > svg, .btn-light > svg, .btn-light2 > svg, .btn-lg > svg {
+.btn-destak {
+  color: #e8f1f2;
+  background: #006494;
+  opacity: 2;
+}
+.btn > svg, .btn-primary > svg, .btn-primary2 > svg, .btn-secondary > svg, .btn-light > svg, .btn-light2 > svg, .btn-lg > svg, .btn-destak > svg {
   margin-right: 5px;
   font-size: 0.8rem;
 }
@@ -404,10 +409,15 @@
   margin-right: 10px;
   color: #006494;
 }
-.header .menu ul li a:hover, .header .menu ul li a.active, .header .menu ul li a.active > .router-link-active {
+.header .menu ul li.active, .header .menu ul li > a.active, .header .menu ul li > a:hover,
+.header .menu ul li .router-link-active {
   transition: all ease-in-out 0.3s;
   transform: translateY(-1px);
-  color: #247ba0;
+  color: #e8f1f2;
+}
+.header .menu ul li.active svg, .header .menu ul li > a.active svg, .header .menu ul li > a:hover svg,
+.header .menu ul li .router-link-active svg {
+  color: #e8f1f2;
 }
 
 .sidebar {
@@ -528,7 +538,8 @@
     text-align: center;
   }
 }
-.page .left .destak, .page .left h2 {
+.page .left .destak,
+.page .left h2 {
   background-color: #13293d;
   color: whitesmoke;
   padding: 5px;
@@ -682,7 +693,7 @@
   justify-content: center;
   text-align: center;
 }
-.social-networks > .item {
+.social-networks > .item, .modal-config .social-networks > .item3, .modal-config .social-networks > .item2, .modal-config .social-networks > .item2-disabled, .modal-config .social-networks > .item-disabled {
   font-size: 2rem;
   margin: 5px;
   color: #006494;
@@ -692,7 +703,7 @@
   cursor: pointer;
   transition: all ease-in 0.3s;
 }
-.social-networks > .item:hover {
+.social-networks > .item:hover, .modal-config .social-networks > .item3:hover, .modal-config .social-networks > .item2:hover, .modal-config .social-networks > .item2-disabled:hover, .modal-config .social-networks > .item-disabled:hover {
   transition: all ease-in 0.6s;
   transform: translateY(-2px);
   color: #13293d;
@@ -726,6 +737,141 @@
   .about > .left .slogan {
     transform: translateX(-5%);
   }
+}
+
+.input-range {
+  width: 60%;
+  height: 8px;
+}
+@media screen and (min-width: 843px) {
+  .input-range {
+    width: 200px;
+    height: 10px;
+  }
+}
+.input-range::-moz-range-track, .input-range::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #006494;
+  border-radius: 5px;
+  border: none !important;
+}
+.item-disabled > .input-range::-moz-range-track, .modal-config .item2-disabled > .input-range::-moz-range-track, .item-disabled > .input-range::-webkit-slider-runnable-track, .modal-config .item2-disabled > .input-range::-webkit-slider-runnable-track {
+  background: rgba(232, 241, 242, 0.8);
+  border-color: rgba(232, 241, 242, 0.8);
+}
+.input-range::-webkit-slider-thumb .input-range::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: #247ba0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.item-disabled > .input-range::-webkit-slider-thumb .input-range::-moz-range-thumb, .modal-config .item2-disabled > .input-range::-webkit-slider-thumb .input-range::-moz-range-thumb {
+  background: rgba(232, 241, 242, 0.8);
+  border-color: rgba(232, 241, 242, 0.8);
+}
+
+.modal-config {
+  z-index: 101;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  flex-direction: column;
+}
+.modal-config button[name=close] {
+  border: none;
+  color: #e8f1f2;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: bold;
+  background: transparent !important;
+}
+@media screen and (min-width: 843px) {
+  .modal-config button[name=close] {
+    top: 15%;
+    right: 32%;
+  }
+}
+.modal-config .item, .modal-config .item3, .modal-config .item2, .modal-config .item2-disabled, .modal-config .item-disabled {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  height: 60px;
+  margin: 5px;
+  padding: 0px 20px;
+  border: solid 1px #ccc;
+  border-radius: 7px;
+  background-color: #e8f1f2;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 843px) {
+  .modal-config .item, .modal-config .item3, .modal-config .item2, .modal-config .item2-disabled, .modal-config .item-disabled {
+    width: 300px;
+    justify-content: space-between;
+  }
+}
+.modal-config .item:hover, .modal-config .item3:hover, .modal-config .item2:hover, .modal-config .item2-disabled:hover, .modal-config .item-disabled:hover {
+  cursor: pointer;
+  background-color: #13293d;
+}
+.modal-config .item:hover > label, .modal-config .item3:hover > label, .modal-config .item2:hover > label, .modal-config .item2-disabled:hover > label, .modal-config .item-disabled:hover > label, .modal-config .item:hover > svg, .modal-config .item3:hover > svg, .modal-config .item2:hover > svg, .modal-config .item2-disabled:hover > svg, .modal-config .item-disabled:hover > svg {
+  color: #e8f1f2;
+}
+.modal-config .item-disabled > svg, .modal-config .item2-disabled > svg, .modal-config .item-disabled > label, .modal-config .item2-disabled > label {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+.modal-config .item-disabled > input, .modal-config .item2-disabled > input {
+  background: rgba(0, 0, 0, 0.2);
+}
+.modal-config .item-disabled:hover, .modal-config .item2-disabled:hover {
+  cursor: not-allowed;
+}
+.modal-config .item-disabled:hover > svg, .modal-config .item2-disabled:hover > svg, .modal-config .item-disabled:hover > label, .modal-config .item2-disabled:hover > label, .modal-config .item-disabled:hover > input, .modal-config .item2-disabled:hover > input {
+  cursor: not-allowed;
+  color: rgba(232, 241, 242, 0.8) !important;
+}
+.modal-config .item-disabled:hover > input, .modal-config .item2-disabled:hover > input {
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+.modal-config .item label, .modal-config .item3 label, .modal-config .item2 label, .modal-config .item2-disabled label, .modal-config .item-disabled label {
+  width: auto;
+  font-family: Semibold;
+  font-size: 0.9rem;
+  font-weight: bolder;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.modal-config .item svg, .modal-config .item3 svg, .modal-config .item2 svg, .modal-config .item2-disabled svg, .modal-config .item-disabled svg {
+  color: #006494;
+  font-size: 1.6rem;
+}
+.modal-config .item2, .modal-config .item2-disabled {
+  justify-content: flex-end;
+}
+.modal-config .item3 {
+  justify-content: flex-end;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.modal-config .item3, .modal-config .item3:hover {
+  transform: translate(15px, 10px);
+  background: none;
+  border: none;
+}
+.modal-config .item3 > svg, .modal-config .item3:hover > svg {
+  color: rgba(232, 241, 242, 0.7);
+}
+.modal-config .item3 > svg:hover, .modal-config .item3:hover > svg:hover {
+  color: #e8f1f2;
 }
 
 @keyframes cloud {

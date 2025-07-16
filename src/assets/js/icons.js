@@ -9,7 +9,13 @@ import {
  faArrowDown,
  faMouse,
  faMailBulk,
- faComment
+ faComment,
+ faMoon,
+ faSun,
+ faCloud,
+ faCloudRain,
+ faCog,
+ faTimes
 } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp , faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
@@ -28,5 +34,12 @@ library.add(faLinkedin)
 library.add(faFacebook)
 library.add(faMailBulk)
 library.add(faComment)
+library.add(faCog)
+library.add(faMoon)
+library.add(faSun)
+library.add(faCloud)
+library.add(faCloudRain)
+library.add(faTimes)
+
 
 export default FontAwesomeIcon
