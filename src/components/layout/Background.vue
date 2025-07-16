@@ -19,7 +19,7 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 export default {
     name: "background-comp",
     props: {
@@ -62,8 +62,7 @@ export default {
                 navigator.geolocation.getCurrentPosition(
                     (position) => callback(position.coords.latitude, position.coords.longitude),
                     (error) => {
-                        console.warn(`Error getCoordenates(${error.code}): ${error.message}`)
-                        callback(-8.0131188,-35.0152703) //temp
+                        console.debug(`Error getCoordenates(${error.code}): ${error.message}`)
                     },
                     {
                         enableHighAccuracy: true,
@@ -72,42 +71,25 @@ export default {
                     }
                 );
                 } else {
-                    console.warn("Geolocation is not supported by this browser.");
+                    console.debug("Geolocation is not supported by this browser.");
                 }
         },
         getMeteoDate() {
-            //@to-do remove temp
-            this.setIsDay(true)
-            this.setOpacity(1)
-            this.it_is_rain = false
-            this.setWindSpeed(60)
-
-            // axios
-            //     .get(this.getMeteoUrl(-8.0131188,-35.0152703))
-            //     .then((resp) => {
-            //         console.log("resp.data", resp.data)
-            //         this.meteo = resp.data
-            //         this.setIsDay(false)
-            //         this.setOpacity(9)
-            //         this.it_is_rain = true
-            //         this.setWindSpeed(50)
-            //     })
-
-            //@to-do uncomment
-            // this.getCoordenates((lat, lng) => {
-            //     this.latitude = lat || 0
-            //     this.longitude = lng || 0
-            //     axios
-            //         .get(this.getMeteoUrl(lat, lng))
-            //         .then((resp) => {
-            //             this.meteo = resp.data
-            //             const opacity = !this.meteo.current.is_day ? (this.meteo.current.cloud_cover/10) : 9
-            //             this.setIsDay(this.meteo.current.is_day)
-            //             this.setOpacity(opacity)
-            //             this.it_is_rain = this.meteo.current.rain
-            //             this.setWindSpeed(this.meteo.current.wind_speed_10m)
-            //         })
-            // })
+            this.getCoordenates((lat, lng) => {
+                this.latitude = lat || 0
+                this.longitude = lng || 0
+                console.log(lat, lng)
+                axios
+                    .get(this.getMeteoUrl(lng, lat))
+                    .then((resp) => {
+                        this.meteo = resp.data
+                        const opacity = !this.meteo.current.is_day ? (this.meteo.current.cloud_cover/10) : 9
+                        this.setIsDay(this.meteo.current.is_day)
+                        this.setOpacity(opacity)
+                        this.it_is_rain = this.meteo.current.rain == 1
+                        this.setWindSpeed(this.meteo.current.wind_speed_10m)
+                    })
+            })
         }
     },
     mounted(){

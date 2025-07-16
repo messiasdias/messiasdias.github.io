@@ -5,10 +5,10 @@
       `app`,
       `background`,
       `opacity-${opacity}`,
-      `theme-${is_day && opacity < 7 ? 'day' : 'night'}`
+      `theme-${is_day && opacity < 5 ? 'day' : 'night'}`
     ].join(' ')"
   >
-    <Paisagem :wind_speed="wind_speed" :is_day="is_day" :opacity="opacity" />
+    <Paisagem :wind_speed="wind_speed" :is_day="is_day" />
     <Background
       :setWindSpeed="setWindSpeed"
       :setOpacity="setOpacity" 
@@ -51,8 +51,6 @@ export default {
   methods: {
     setOpacity(opacity = 1){
       this.opacity = Math.round(opacity)
-      // if(this.opacity >= 7){this.is_day = true}
-      // else{this.is_day = false}
     },
     setIsDay(is_day = false){
       this.is_day = is_day

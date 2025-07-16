@@ -161,11 +161,7 @@ export default {
     is_day: {
       type: Boolean,
       default: true,
-    },
-    opacity: {
-      type: Number,
-      default: 1,
-    },
+    }
   },
   data() {
     return {
@@ -193,7 +189,6 @@ export default {
     setMoonPoints(cx, cy, ra) {
       const randPoints = [...Array(ra-1).keys()]
       const pontosX = [], pontosY = [], radius = [];
-
       const r = 2
       randPoints.forEach(() => {
         pontosX.push(Math.floor(Math.random() * ra-20) + cx)
@@ -205,7 +200,6 @@ export default {
         cxs: pontosX.filter(v=>v), 
         cys: pontosY.filter(v=>v), 
       }
-      console.log("Pontos dentro de this.moon_points: ",  this.moon_points)
     },
   },
   mounted() {
