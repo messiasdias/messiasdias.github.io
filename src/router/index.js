@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-// import Contacts from '../views/About.vue'
 import Projects from '../views/Projects.vue'
 import Feedback from '../views/Feedback.vue'
+import Curriculum from '../views/Curriculum.vue'
 
 const routes = [
   //Example with lazy-loaded
@@ -25,21 +25,20 @@ const routes = [
     name: 'about',
     component: About
   },
-  // {
-  //   path: '/contacts',
-  //   name: 'contacts',
-  //   component: Contacts
-  // },
   {
     path: '/projects',
     name: 'projects',
     component: Projects
   },
-
   {
     path: '/feedback',
     name: 'feedback',
     component: Feedback
+  },
+  {
+    path: '/curriculum',
+    name: 'curriculum',
+    component: Curriculum
   },
 ]
 

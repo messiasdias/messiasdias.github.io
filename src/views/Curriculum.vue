@@ -1,14 +1,13 @@
 <template>
-  <article class="page projects">
+  <article class="page about">
     <div class="left">
-      <h2>This is an projects page</h2>
+      <h2>This is an curriculum page</h2>
     </div>
     <div class="right"></div>
   </article>
 </template>
   <script>
 export default {
-  name: "projects-comp",
+  name: "curriculum-comp",
 }
 </script>
-  

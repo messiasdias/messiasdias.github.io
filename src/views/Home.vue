@@ -9,10 +9,15 @@
         <HomeImg/>
 
         <div class="buttons">
-            <a class="btn-primary btn-lg" target="_blank" href="https://messiasdias.github.io/curriculum">
+            <RouterLink to="/curriculum" class="btn-primary btn-lg" >
                 <!-- <font-awesome-icon icon="fa-solid fa-file-contract" />  -->
                 Ver Curriculum
-            </a>
+            </RouterLink>
+            <!-- <a class="btn-primary btn-lg" target="_blank" href="https://messiasdias.github.io/curriculum">
+                <font-awesome-icon icon="fa-solid fa-file-contract" />
+                Ver Curriculum
+            </a> -->
+            
             <RouterLink class="btn-secondary btn-lg" to="/about">Quero saber mais?</RouterLink> 
             <!-- <RouterLink class="btn-light" to="/feedback">Deixe seu Feedback</RouterLink> -->
         </div>

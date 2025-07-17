@@ -1,11 +1,14 @@
 <template>
-    <div class="feedback">
-      <h1>This is an feedback page</h1>
+  <article class="page feedback">
+    <div class="left">
+      <h2>This is an feedback page</h2>
     </div>
-  </template>
+    <div class="right"></div>
+  </article>
+</template>
   <script>
-  export default {
-    name: 'feedback-comp'
-  }
-  </script>
+export default {
+  name: "feedback-comp",
+}
+</script>
   
