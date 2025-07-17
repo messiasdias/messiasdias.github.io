@@ -64,6 +64,7 @@ export default {
                     (position) => callback(position.coords.latitude, position.coords.longitude),
                     (error) => {
                         console.debug(`Error getCoordenates(${error.code}): ${error.message}`)
+                        this.getMeteoDate() //Busca localização até encontrar
                     },
                     {
                         enableHighAccuracy: true,
