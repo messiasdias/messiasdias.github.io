@@ -1,42 +1,28 @@
-# Messias Dias 
+#  Olá 👋🏿, eu sou `Messias Dias`
 
-## Olá! 
+!['Foto Messias'](src/assets/img/eu.png)
 
-## [👉 Meu portifólio em contrução 👈](https://messiasdias.github.io/curriculum) 
-
-## [👉 Ver Curriculum aqui! 👈](https://messiasdias.github.io/curriculum) 
+## Desenvolvedor Web FullStack 👨🏿‍💻
 [![CodeTime](https://img.shields.io/endpoint?style=social&url=https%3A%2F%2Fapi.codetime.dev%2Fshield%3Fid%3D1495%26project%3D%26in%3D0)](https://codetime.dev)
 
-💼 [`messiasdias.github.io/curriculum`](https://messiasdias.github.io/curriculum)
 
-👔 [`linkedin.com/in/messiasdias`](https://www.linkedin.com/in/messiasdias/)
+` PHP`, `Laravel`, `Slim`, `Symfony`, `Wordpress`, `Python`, `Django`,
+`Javascript`, ` Node.js`, `Express`, `Next.JS`, `Vue.js`, `React`, `Angular`
+`Html`, `Css`, `Scss`, `Sass`, `Less`, `Bootstrap`, `Materialize`
+`Mysql`, `Docker`
+`Git`, `Github actions`, `Gitlab Pipelines`, `Docker`, `Linux Ubuntu/Debian`
 
 
+<!-- ## [👉 Ver Curriculum aqui! 👈](https://messiasdias.github.io/curriculum) 
+
+## [👉 Portifólio em contrução 🛠](https://messiasdias.github.io)  -->
 
 
-## Project setup
-```
-npm install
-```
+🗂 [`👉 Portifólio em contrução 🛠`](https://messiasdias.github.io/curriculum) - [`messiasdias.github.io`](https://messiasdias.github.io/curriculum)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+💼 [`👉 Curriculum 👈`](https://messiasdias.github.io/curriculum) - [`messiasdias.github.io/curriculum`](https://messiasdias.github.io/curriculum)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+👔  [`Linkedin`](https://www.linkedin.com/in/messiasdias/) - [`linkedin.com/in/messiasdias`](https://www.linkedin.com/in/messiasdias/)
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### Inpirado em [UI - Web Developer Portfolio | Behance](https://www.behance.net/gallery/105127205/UI-Web-Developer-Portfolio/modules/611505911)
 
 
