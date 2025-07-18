@@ -95,7 +95,7 @@ export default {
     },
     mounted(){
         emitter.on('setByLocation', this.getMeteoDate)
-        if(this.by_location) {this.getMeteoDate()}
+        if(this.by_location) {setInterval(this.getMeteoDate, 10000)}
     }
 }
 
