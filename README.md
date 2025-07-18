@@ -17,7 +17,7 @@
 `Git`, `Github actions`, `Gitlab Pipelines`, `Docker`, `Linux Ubuntu/Debian`
 
 
-#### 🗂 [`👉 Portifólio em contrução 🛠`](https://messiasdias.github.io/curriculum) - [`messiasdias.github.io`](https://messiasdias.github.io/curriculum)
+#### 🗂 [`👉 Portifólio em contrução 🛠`](https://messiasdias.github.io) - [`messiasdias.github.io`](https://messiasdias.github.io)
 
 🇺🇸 `Portfolio under construction`
 
