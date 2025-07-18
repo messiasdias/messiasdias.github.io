@@ -93,7 +93,7 @@ export default {
     setByLocation(by_location = true){
       this.by_location = by_location
       localStorage.setItem("by_location", JSON.stringify(this.by_location))
-      if(this.by_location){emitter.emit('setByLocation', this.by_location)}
+      emitter.emit('setByLocation', this.by_location)
     }
   },
   beforeMount() {

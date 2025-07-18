@@ -425,7 +425,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
           font-family: SemiBold;
           text-transform: lowercase;
           text-decoration: none;
-          color: $color2;
+          color: rgba($white, .8);
           cursor: pointer;
           transition: all ease-in-out .6s;
 
@@ -438,7 +438,6 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
             min-width: 20%;
             padding-right: 60px;
             font-size: 1.3rem;
-
             b {
               display: block;
             }
@@ -447,7 +446,7 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
           i,
           svg {
             margin-right: 10px;
-            color: $color2;
+            color: rgba($white, .8);
           }
         }
 
@@ -458,6 +457,8 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
           transition: all ease-in-out .3s;
           transform: translateY(-1px);
           color: $white;
+          text-decoration: line-through;
+
           svg {
             color: $white;
           }

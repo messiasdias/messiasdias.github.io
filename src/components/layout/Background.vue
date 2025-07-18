@@ -44,7 +44,8 @@ export default {
     data() {
         return {
             meteo: null,
-            gotas: [...Array(100).keys()]
+            location_interval: null,
+            gotas: [...Array(100).keys()],
         }
     },
     methods: {
@@ -77,25 +78,30 @@ export default {
             }
         },
         getMeteoDate() {
-            this.getCoordenates((lat, lng) => {
-                axios
-                    .get(this.getMeteoUrl(lat, lng))
-                    .then((resp) => {
-                        this.meteo = resp.data
-                        const rain = this.meteo.current.rain > 0
-                        const day = this.meteo.current.is_day == 1
-                        const opct = day & !rain ? (Math.round(this.meteo.current.cloud_cover/10) - 2) : 7
-                        this.$emit('setOpacity', opct)
-                        this.$emit('setIsDay', day)
-                        this.$emit('setItIsRain', rain)
-                        this.$emit('setWindSpeed',this.meteo.current.wind_speed_10m)
+            if(this.location_interval) {clearInterval(this.location_interval)}
+            if(this.by_location) {
+                this.location_interval = setInterval(() => {
+                    this.getCoordenates((lat, lng) => {
+                        axios
+                            .get(this.getMeteoUrl(lat, lng))
+                            .then((resp) => {
+                                this.meteo = resp.data
+                                const rain = this.meteo.current.rain > 0
+                                const day = this.meteo.current.is_day == 1
+                                const opct = day & !rain ? (Math.round(this.meteo.current.cloud_cover/10) - 2) : 7
+                                this.$emit('setOpacity', opct)
+                                this.$emit('setIsDay', day)
+                                this.$emit('setItIsRain', rain)
+                                this.$emit('setWindSpeed',this.meteo.current.wind_speed_10m)
+                            })
                     })
-            })
+                }, 7000)
+            }
         }
     },
     mounted(){
+        this.getMeteoDate()
         emitter.on('setByLocation', this.getMeteoDate)
-        if(this.by_location) {setInterval(this.getMeteoDate, 10000)}
     }
 }
 

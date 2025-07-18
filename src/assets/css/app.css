@@ -386,7 +386,7 @@
   font-family: SemiBold;
   text-transform: lowercase;
   text-decoration: none;
-  color: #006494;
+  color: rgba(232, 241, 242, 0.8);
   cursor: pointer;
   transition: all ease-in-out 0.6s;
 }
@@ -407,13 +407,14 @@
 .header .menu ul li a i,
 .header .menu ul li a svg {
   margin-right: 10px;
-  color: #006494;
+  color: rgba(232, 241, 242, 0.8);
 }
 .header .menu ul li.active, .header .menu ul li > a.active, .header .menu ul li > a:hover,
 .header .menu ul li .router-link-active {
   transition: all ease-in-out 0.3s;
   transform: translateY(-1px);
   color: #e8f1f2;
+  text-decoration: line-through;
 }
 .header .menu ul li.active svg, .header .menu ul li > a.active svg, .header .menu ul li > a:hover svg,
 .header .menu ul li .router-link-active svg {
