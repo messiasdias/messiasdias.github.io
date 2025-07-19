@@ -993,6 +993,45 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
 }
 
 
+.page.curriculum{
+  &::after {
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba($black, 1) 1% , transparent);
+    backdrop-filter: blur(10px);
+    z-index: -6;
+  }
+
+  & > .close {
+    color: $color2;
+    position: fixed;
+    font-size: 1.4rem;
+    top: 6.5vh;
+    right: 5.5vw;
+    z-index: 101;
+    &:hover {
+      color: $color1;
+    }
+  }
+}
+
+.icurriculum {
+  position: fixed;
+  top: 2vh;
+  left: 2vw;
+  width: 96vw;
+  height: 96vh;
+  z-index: 100;
+  border-radius: 7px;
+  // box-shadow: 1px 1px 5px rgba($black2, .2);
+}
+
+
+
 
 @import "./paisagem.scss";
 @import "./dark.scss";

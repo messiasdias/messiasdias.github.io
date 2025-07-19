@@ -892,6 +892,39 @@
   color: #e8f1f2;
 }
 
+.page.curriculum::after {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, black 1%, transparent);
+  backdrop-filter: blur(10px);
+  z-index: -6;
+}
+.page.curriculum > .close {
+  color: #006494;
+  position: fixed;
+  font-size: 1.4rem;
+  top: 6.5vh;
+  right: 5.5vw;
+  z-index: 101;
+}
+.page.curriculum > .close:hover {
+  color: #13293d;
+}
+
+.icurriculum {
+  position: fixed;
+  top: 2vh;
+  left: 2vw;
+  width: 96vw;
+  height: 96vh;
+  z-index: 100;
+  border-radius: 7px;
+}
+
 @keyframes cloud {
   0% {
     visibility: visible;

@@ -1,13 +1,12 @@
 <template>
-  <article class="page about">
-    <div class="left">
-      <h2>This is an curriculum page</h2>
-    </div>
-    <div class="right"></div>
+  <article class="page curriculum">
+    <RouterLink class="close" to="/"><font-awesome-icon  icon="fas fa-times" /></RouterLink>
+    <iframe class="icurriculum" id="icurriculum" src="https://messiasdias.github.io/curriculum/" frameborder="0"></iframe>
   </article>
 </template>
-  <script>
+
+<script>
 export default {
-  name: "curriculum-comp",
+  name: "curriculum-comp"
 }
 </script>

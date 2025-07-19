@@ -10,14 +10,7 @@
 
         <div class="buttons">
             <RouterLink class="btn-primary btn-lg" to="/about">Quero saber mais!</RouterLink> 
-            <!-- <RouterLink to="/curriculum" class="btn-primary btn-lg" >
-                <font-awesome-icon icon="fa-solid fa-file-contract" /> 
-                Ver Curriculum
-            </RouterLink> -->
-            <a class="btn-secondary btn-lg" target="_blank" href="https://messiasdias.github.io/curriculum">
-                <!-- <font-awesome-icon icon="fa-solid fa-file-contract" /> -->
-                Ver Curriculum
-            </a>
+            <RouterLink to="/curriculum" class="btn-secondary btn-lg" >Ver Curriculum</RouterLink>
             <!-- <RouterLink class="btn-light" to="/feedback">Deixe seu Feedback</RouterLink> -->
         </div>
     </div>
