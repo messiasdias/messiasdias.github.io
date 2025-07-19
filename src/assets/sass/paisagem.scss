@@ -1,7 +1,5 @@
 //colors
-// $color: #f7c6d9ff;
-// $color2: #efb4cfff;
-$color3: #5846f6ff;
+$yelow-sun: #f3b947;
 $green-grass:#4CAF50;
 
 @keyframes cloud {
@@ -36,50 +34,30 @@ $green-grass:#4CAF50;
         stroke: transparent;
         stroke-opacity: 0;
         stroke-width: 0;
-        text-shadow: 5px -5px 10px rgba(yellow, 0.3);
     }
-
-    100% {
-        stroke: rgba(white, 0.2);
+    50% {
+        stroke: rgba(white, .03);
         stroke-opacity: 1;
+        stroke-width: 12;
+        filter: blur(.1px);
+    }
+    100% {
         stroke-width: 20;
-        box-shadow: 5px 5px 10px rgba(black, 0.3);
+        filter: blur(.5px);
     }
 }
 
 @keyframes stars {
     0% {
-        opacity: .3;
+        opacity: .8;
     }
     50% {
-        opacity: .1;
+        opacity: .6;
+        filter: blur(.3px);
     }
     70% {
         opacity: 1;
-    }
-}
-
-@keyframes ping-pong {
-    0% {
-        transform: rotateZ(0deg);
-    }
-
-    50% {
-        transform: rotateZ(180deg);
-    }
-
-    50% {
-        transform: rotateZ(0.2deg);
-    }
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    99.999% {
-        transform: rotate(360deg);
+        filter: blur(.8px);
     }
 }
 
@@ -96,15 +74,10 @@ $green-grass:#4CAF50;
 }
 
 .sun {
-    fill: #f3b947;
+    animation: sun ease-in-out 2s infinite alternate;
+    fill: $yelow-sun;
     fill-opacity: 1;
-    animation: sun ease-in-out 12s infinite alternate;
-    animation-play-state: paused;
-    z-index: -1;
-}
-
-.sunshine {
-    @extend .sun;
+    z-index: -8;
 }
 
 .moon-craters{
@@ -115,6 +88,7 @@ $green-grass:#4CAF50;
 
 .cloud {
     fill: $white;
+    z-index: -6 !important;
 }
 
 .rock {
@@ -140,35 +114,8 @@ $green-grass:#4CAF50;
 }
 
 .stars {
-    animation: stars ease-in-out 1s infinite;
+    animation: stars ease-in-out 5s infinite;
     position: relative;
     fill: $white;
     z-index: -10;
-}
-
-
-.bike {
-    max-width: 30% !important;
-    animation: cloud ease-in-out 30s infinite;
-    display: none; 
-
-    &>#front_tire,
-    &>#rear_tire {
-        stroke: $color3;
-        fill: transparent;
-        animation: ping-pong 1s infinite;
-    }
-
-    &-body {
-        stroke: $color3;
-    }
-
-    #cog {
-        stroke-dasharray: 1;
-        animation: ping-pong 1s infinite;
-    }
-
-    #cog-pedal {
-        animation: ping-pong 1s infinite;
-    }
 }

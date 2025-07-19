@@ -41,4 +41,8 @@
     }
   }
 
+  .about::after {
+    background: linear-gradient(180deg, $black 1%, rgba($black2, .6)) !important;
+  }
+
 }

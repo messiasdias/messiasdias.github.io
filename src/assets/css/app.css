@@ -375,7 +375,7 @@
 }
 @media screen and (min-width: 843px) {
   .header .menu ul li {
-    margin: 0px 15px;
+    margin: 0px 20px;
   }
 }
 .header .menu ul li a {
@@ -389,15 +389,16 @@
   color: rgba(232, 241, 242, 0.8);
   cursor: pointer;
   transition: all ease-in-out 0.6s;
+  justify-content: center;
 }
 .header .menu ul li a b {
   display: none;
-  text-shadow: 1px -1px 1px rgba(0, 0, 0, 0.1);
+  text-shadow: 0.5px -0.5px 2px rgba(0, 0, 0, 0.2);
 }
 @media screen and (min-width: 843px) {
   .header .menu ul li a {
     min-width: 20%;
-    padding-right: 60px;
+    margin-right: 10px;
     font-size: 1.3rem;
   }
   .header .menu ul li a b {
@@ -407,18 +408,17 @@
 .header .menu ul li a i,
 .header .menu ul li a svg {
   margin-right: 10px;
-  color: rgba(232, 241, 242, 0.8);
+  color: rgba(0, 0, 0, 0.3);
 }
 .header .menu ul li.active, .header .menu ul li > a.active, .header .menu ul li > a:hover,
 .header .menu ul li .router-link-active {
-  transition: all ease-in-out 0.3s;
-  transform: translateY(-1px);
-  color: #e8f1f2;
-  text-decoration: line-through;
+  transition: all ease-in-out 0.2s;
+  transform: translateY(-0.8px);
+  color: #247ba0;
 }
 .header .menu ul li.active svg, .header .menu ul li > a.active svg, .header .menu ul li > a:hover svg,
 .header .menu ul li .router-link-active svg {
-  color: #e8f1f2;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .sidebar {
@@ -710,15 +710,31 @@
   color: #13293d;
 }
 
-.about > .left h2 {
-  align-self: center;
+.about::after {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(232, 241, 242, 0.6) 1%, transparent);
+  backdrop-filter: blur(10px);
+  z-index: -6;
+}
+@media screen and (max-width: 843px) {
+  .about .left {
+    transform: translateX(-2.5%);
+  }
 }
 @media screen and (min-width: 843px) {
-  .about > .left {
+  .about .left {
     align-self: start !important;
   }
 }
-.about > .left .slogan {
+.about .left h2 {
+  align-self: center;
+}
+.about .left .slogan {
   font-size: 1.5rem !important;
   line-height: 2rem;
   text-align: center !important;
@@ -727,7 +743,7 @@
   margin: 0 !important;
 }
 @media screen and (min-width: 843px) {
-  .about > .left .slogan {
+  .about .left .slogan {
     text-align: left;
     font-size: 2.8rem !important;
     line-height: 3.5rem;
@@ -735,7 +751,7 @@
   }
 }
 @media screen and (max-width: 843px) {
-  .about > .left .slogan {
+  .about .left .slogan {
     transform: translateX(-5%);
   }
 }
@@ -903,43 +919,29 @@
     stroke: transparent;
     stroke-opacity: 0;
     stroke-width: 0;
-    text-shadow: 5px -5px 10px rgba(255, 255, 0, 0.3);
+  }
+  50% {
+    stroke: rgba(255, 255, 255, 0.03);
+    stroke-opacity: 1;
+    stroke-width: 12;
+    filter: blur(0.1px);
   }
   100% {
-    stroke: rgba(255, 255, 255, 0.2);
-    stroke-opacity: 1;
     stroke-width: 20;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    filter: blur(0.5px);
   }
 }
 @keyframes stars {
   0% {
-    opacity: 0.3;
+    opacity: 0.8;
   }
   50% {
-    opacity: 0.1;
+    opacity: 0.6;
+    filter: blur(0.3px);
   }
   70% {
     opacity: 1;
-  }
-}
-@keyframes ping-pong {
-  0% {
-    transform: rotateZ(0deg);
-  }
-  50% {
-    transform: rotateZ(180deg);
-  }
-  50% {
-    transform: rotateZ(0.2deg);
-  }
-}
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  99.999% {
-    transform: rotate(360deg);
+    filter: blur(0.8px);
   }
 }
 .bg-paisagem {
@@ -954,12 +956,11 @@
   background: linear-gradient(-365deg, #4CAF50 35%, transparent 20%);
 }
 
-.sun, .moon-craters, .sunshine {
+.sun, .moon-craters {
+  animation: sun ease-in-out 2s infinite alternate;
   fill: #f3b947;
   fill-opacity: 1;
-  animation: sun ease-in-out 12s infinite alternate;
-  animation-play-state: paused;
-  z-index: -1;
+  z-index: -8;
 }
 
 .moon-craters {
@@ -969,6 +970,7 @@
 
 .cloud {
   fill: #e8f1f2;
+  z-index: -6 !important;
 }
 
 .rock {
@@ -993,31 +995,10 @@
 }
 
 .stars {
-  animation: stars ease-in-out 1s infinite;
+  animation: stars ease-in-out 5s infinite;
   position: relative;
   fill: #e8f1f2;
   z-index: -10;
-}
-
-.bike {
-  max-width: 30% !important;
-  animation: cloud ease-in-out 30s infinite;
-  display: none;
-}
-.bike > #front_tire, .bike > #rear_tire {
-  stroke: #5846f6;
-  fill: transparent;
-  animation: ping-pong 1s infinite;
-}
-.bike-body {
-  stroke: #5846f6;
-}
-.bike #cog {
-  stroke-dasharray: 1;
-  animation: ping-pong 1s infinite;
-}
-.bike #cog-pedal {
-  animation: ping-pong 1s infinite;
 }
 
 .theme-day {
@@ -1039,7 +1020,7 @@
   color: #e8f1f2 !important;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
 }
-.theme-night .sun, .theme-night .sunshine, .theme-night .moon-craters {
+.theme-night .sun, .theme-night .moon-craters {
   fill: #e8f1f2;
   fill-opacity: 0.9;
 }
@@ -1052,6 +1033,9 @@
 .theme-night .left p .destak2 {
   color: #006494;
   text-shadow: none !important;
+}
+.theme-night .about::after {
+  background: linear-gradient(180deg, #000000 1%, rgba(0, 0, 0, 0.6)) !important;
 }
 
 /*# sourceMappingURL=app.css.map */
