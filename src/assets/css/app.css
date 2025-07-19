@@ -911,6 +911,17 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   }
 }
+@keyframes stars {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  70% {
+    opacity: 1;
+  }
+}
 @keyframes ping-pong {
   0% {
     transform: rotateZ(0deg);
@@ -932,7 +943,7 @@
 }
 .bg-paisagem {
   position: fixed;
-  z-index: -3;
+  z-index: -1 !important;
   margin: 0 !important;
   bottom: 0;
   left: 0;
@@ -978,6 +989,13 @@
   stroke-width: 4;
   stroke-linejoin: round;
   stroke-dasharray: 0;
+}
+
+.stars {
+  animation: stars ease-in-out 1s infinite;
+  position: relative;
+  fill: #e8f1f2;
+  z-index: -10;
 }
 
 .bike {

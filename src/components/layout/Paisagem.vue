@@ -16,7 +16,23 @@
         :key="i"
         fill="grey"
       />
+
+      <template v-if="!it_is_rain">
+        <circle
+          id="stars"
+          class="stars"
+          v-for="star in [...Array(100).keys()]"
+          :key="star"
+          :cx="parseInt(Math.random() * 2000)"
+          :cy="parseInt(Math.random() * 400)"
+          :r="parseInt(Math.random() * 3)"
+          :style="`animation-delay: .${star}s`"
+          fill="grey"
+        />
+      </template>
+
     </template>
+
 
     <!-- Chão -->
     <!-- d="M0 529 L2000 729 L2000 1024 L-350 1024 Z"  -->
@@ -159,6 +175,10 @@ export default {
       default: 10,
     },
     is_day: {
+      type: Boolean,
+      default: true,
+    },
+    it_is_rain: {
       type: Boolean,
       default: true,
     }

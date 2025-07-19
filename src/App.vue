@@ -9,7 +9,8 @@
     ].join(' ')"
   >
     <Paisagem 
-      :wind_speed="wind_speed" 
+      :wind_speed="wind_speed"
+      :it_is_rain="it_is_rain"
       :is_day="is_day" 
     />
 

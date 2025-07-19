@@ -47,6 +47,18 @@ $green-grass:#4CAF50;
     }
 }
 
+@keyframes stars {
+    0% {
+        opacity: .3;
+    }
+    50% {
+        opacity: .1;
+    }
+    70% {
+        opacity: 1;
+    }
+}
+
 @keyframes ping-pong {
     0% {
         transform: rotateZ(0deg);
@@ -73,7 +85,7 @@ $green-grass:#4CAF50;
 
 .bg-paisagem {
     position: fixed;
-    z-index: -3;
+    z-index: -1 !important;
     margin: 0 !important;
     bottom: 0;
     left: 0;
@@ -125,6 +137,13 @@ $green-grass:#4CAF50;
         stroke-linejoin: round;
         stroke-dasharray: 0;
     }
+}
+
+.stars {
+    animation: stars ease-in-out 1s infinite;
+    position: relative;
+    fill: $white;
+    z-index: -10;
 }
 
 
