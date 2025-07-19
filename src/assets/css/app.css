@@ -821,7 +821,8 @@
 }
 .modal-config .item:hover, .modal-config .item3:hover, .modal-config .item2:hover, .modal-config .item2-disabled:hover, .modal-config .item-disabled:hover {
   cursor: pointer;
-  background-color: #13293d;
+  background-color: #006494;
+  border-color: transparent !important;
 }
 .modal-config .item:hover > label, .modal-config .item3:hover > label, .modal-config .item2:hover > label, .modal-config .item2-disabled:hover > label, .modal-config .item-disabled:hover > label, .modal-config .item:hover > svg, .modal-config .item3:hover > svg, .modal-config .item2:hover > svg, .modal-config .item2-disabled:hover > svg, .modal-config .item-disabled:hover > svg {
   color: #e8f1f2;

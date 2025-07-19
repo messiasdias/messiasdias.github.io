@@ -895,12 +895,13 @@ $click3: "M325.94633,501.05131l86.76393,16.192a17.07827,17.07827,0,0,0,.73363,1.
  
     @media screen and (min-width: $table_size) {
       width: 300px;
-      justify-content: space-between;;
+      justify-content: space-between;
     }
 
     &:hover{
       cursor: pointer;
-      background-color: $color1;
+      background-color: $color2;
+      border-color: transparent !important;
       & > label,
       & > svg {
         color: $white;
